@@ -1,1 +1,1 @@
-Worker: node index copy.js 
+Worker: node index.js 
