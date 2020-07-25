@@ -11,7 +11,7 @@ bot.on('ready', () =>  {
     setInterval(() => {
         const result = Math.floor(Math.random() * dailyfact.length); //randomizes selection from dailyfact array 
         general.send(dailyfact[result]); 
-    }, 3600000); 
+    }, 86400000); 
 })
 
 //creates an array that stores daily facts 
