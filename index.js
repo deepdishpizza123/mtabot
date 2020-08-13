@@ -2,13 +2,13 @@ const Discord = require('discord.js');
 const bot = new Discord.Client(); 
 const prefix = '!'; 
 
-//get argentina facts from argentinafacts.js file
-import { dailyfact } from './argentinafacts'; 
-
 bot.on('ready', () =>  {
     console.log('The bot is online!'); //shows when the bot has accepted new code 
     
     bot.user.setActivity('a Pato game || use !help for more', { type: 'WATCHING'}); //sets bot status 
+
+    //get argentina facts from argentinafacts.js file
+    const dailyfact = require("./argentinafacts");
 
     const general = bot.channels.cache.get('622981335157440532'); //allows bot to send message to channel w/out message command
     setInterval(() => {

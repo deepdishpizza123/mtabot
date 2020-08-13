@@ -19,3 +19,4 @@ const dailyfact = [
     'Pato, the national sport of argentina, involved throwing a live duck around before that got banned for animal cruelty.',
     'Anyone who died from knife fights before pato games were denied a Christian burial' 
 ];
+module.exports = dailyfact; 
