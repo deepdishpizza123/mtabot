@@ -17,6 +17,13 @@ const dailyfact = [
     'The quebracho colorado (willowleaf red quebracho) is the national forest tree' + 'https://en.wikipedia.org/wiki/File:Schinopsis_balansae.jpg', 
     'Rhodochrosite is known as the national gemstone (Wikipedia)' + 'https://en.wikipedia.org/wiki/File:Rhodochrosite_on_Matrix_-_Peru.jpg', 
     'Pato, the national sport of argentina, involved throwing a live duck around before that got banned for animal cruelty.',
-    'Anyone who died from knife fights before pato games were denied a Christian burial' 
+    'Anyone who died from knife fights before pato games were denied a Christian burial',
+    'According to Google\'s Climate Action Tracker, Argentina is "Critically Insufficient when it comes to greenhouse gas emissions, meaning that if all governments were within this range average global temperature would rise 4°C+. \n For more information see: ' + 'https://climateactiontracker.org/countries/',
+    'Flag of Argentina: ' + 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1024px-Flag_of_Argentina.svg.png', 
+    'National Anthem of Argentina: ' + 'https://www.youtube.com/watch?v=yqBC3l7i7dk',
+    'Argentina is divided into 23 provinces ("provincias") and 1 autonomous city ("ciudad autónoma), Buenos Aires.',
+    'Argentina has had several waves of European immigration, mostly from Spain and Italy. 62.5% of the population has full or partial Italian ancestry, and Argentinian culture has significant ties with Italian culture.',
+    'Buenos Aires is one of the theater capitals of the world, with the source centered on Corrientes Avenue, sometimes referred to as an "intellectual Broadway". Teatro Colón is a global landmark for opera and is considered to have one of the best acoustics in the world.' + 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Sala-colon.jpg/1200px-Sala-colon.jpg',
+    'Besides being inspired by European cuisine, Argentinian cuisine is also influenced by indigneous and Criollo cuisine, with dishes like empanadas, locro, humita, and mate.' + 'https://upload.wikimedia.org/wikipedia/commons/7/78/Empanadas_argentinas_2017.jpg'
 ];
 module.exports = dailyfact; 
