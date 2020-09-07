@@ -49,8 +49,10 @@ bot.on('message', message => {
             message.channel.send(newfactsembed); 
             break;
         case 'addfact':
-            if (message.content.match(new RegExp(/Argentina/i))) {
-                dailyfact.push(); 
+            if (message.content.match(new RegExp(/Argentina/i, /Buenos Aires/i, /pato/i, /Yerba Mate/i))) {
+                dailyfact.push(message.content.substr(9));
+                message.channel.send('Fact successfully added!');
+                message.channel.send(message.content.substr(9)); 
             }
             else {
                 message.channel.send('That\'s not a Argentina fact')
