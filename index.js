@@ -39,6 +39,7 @@ bot.on('message', message => {
                 .setColor('GOLD')
                 .setFooter('LECHUGA, LIMÓN, CORNO', 'http://i.huffpost.com/gen/1016565/images/o-LEMON-BENEFITS-facebook.jpg')
             message.channel.send(helpembed); 
+            break; 
         case 'newfacts':
             message.delete();
             const newfactsembed = new Discord.MessageEmbed()
@@ -46,6 +47,7 @@ bot.on('message', message => {
                 .setDescription('Use !addfact + your argentina fact so MTAbot can add it to the Argentina Facts library.')
                 .setColor('0x0096FA')
             message.channel.send(newfactsembed); 
+            break;
         case 'addfact':
             if (message.content.match(new RegExp(/Argentina/i))) {
                 dailyfact.push(); 
@@ -53,6 +55,7 @@ bot.on('message', message => {
             else {
                 message.channel.send('That\'s not a Argentina fact')
             }
+            break;
     }
 
 });
