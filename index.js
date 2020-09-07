@@ -20,12 +20,14 @@ bot.on('ready', () =>  {
 bot.on('message', message => {
     let args = message.content.substring(prefix.length).split(' '); 
 
-    if (message.content === 'based' || message.content === 'Based') {
+    if (message.content.match(new RegExp(/Based/i))) {
         message.react('713093398692757574'); 
     }
-    if (message.content === 'yes' || message.content === 'Yes') {
+
+    if (message.content.match(new RegExp(/Yes/i)) || message.content.match(new RegExp(/No/i))) {
         message.react('714248369756962816'); 
     }
+
     switch(args[0]) {
         case 'help': 
             const role = 'Gives necessary facts about Argentina.'
@@ -37,7 +39,22 @@ bot.on('message', message => {
                 .setColor('GOLD')
                 .setFooter('LECHUGA, LIMÓN, CORNO', 'http://i.huffpost.com/gen/1016565/images/o-LEMON-BENEFITS-facebook.jpg')
             message.channel.send(helpembed); 
+        case 'newfacts':
+            message.delete();
+            const newfactsembed = new Discord.MessageEmbed()
+                .setTitle('Add your own Argentina Facts!')
+                .setDescription('Use !addfact + your argentina fact so MTAbot can add it to the Argentina Facts library.')
+                .setColor('0x0096FA')
+            message.channel.send(newfactsembed); 
+        case 'addfact':
+            if (message.content.match(new RegExp(/Argentina/i))) {
+                dailyfact.push(); 
+            }
+            else {
+                message.channel.send('That\'s not a Argentina fact')
+            }
     }
+
 });
 
 bot.login(process.env.token); 
