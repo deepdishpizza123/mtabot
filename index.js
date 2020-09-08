@@ -28,6 +28,8 @@ bot.on('message', message => {
         message.react('714248369756962816'); 
     }
 
+    var useraddfacts = [];
+
     switch(args[0]) {
         case 'help': 
             const role = 'Gives necessary facts about Argentina.'
@@ -50,7 +52,7 @@ bot.on('message', message => {
             break;
         case 'addfact':
             if (message.content.match(new RegExp(/Argentina/i))) {
-                dailyfact.push(message.content.substr(9));
+                useraddfacts.push(message.content.substr(9));
                 message.channel.send('Fact successfully added!');
                 message.channel.send(message.content.substr(9)); 
             }
