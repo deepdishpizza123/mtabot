@@ -60,6 +60,9 @@ bot.on('message', message => {
                 message.channel.send('That\'s not a Argentina fact')
             }
             break;
+        case 'userfacts':
+            message.channel.send(useraddfacts);
+            break;
     }
 
 });
