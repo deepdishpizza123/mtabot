@@ -54,7 +54,7 @@ bot.on('message', message => {
             message.channel.send(dailyfact); 
             break;
         case 'deletefact':
-            if (message.member.roles.cache.has('744565379547791480')) {
+            if (message.member.roles.cache.has('723307528351645756')) {
                 dailyfact.pop();
                 message.channel.send(`Fact successfully deleted: ${recentfact}`); }
             else {
