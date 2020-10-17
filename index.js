@@ -17,7 +17,7 @@ bot.on('ready', () =>  {
     }, 86400000); 
 });
 
-let dailyfact = [];
+let dailyfact = ['Argentina is a country'];
 bot.on('message', message => {
     let args = message.content.substring(prefix.length).split(' '); 
 
