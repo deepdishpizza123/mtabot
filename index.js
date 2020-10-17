@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 const prefix = '!'; 
 
 bot.on('ready', () =>  {
-    console.log('The bot is online!'); //shows when the bot has accepted new code 
+    console.log('The bot is online!'); 
     
     bot.user.setActivity('a Pato game || use !help for more', { type: 'WATCHING'}); //sets bot status 
 
@@ -17,6 +17,7 @@ bot.on('ready', () =>  {
     }, 86400000); 
 });
 
+let dailyfact = [];
 bot.on('message', message => {
     let args = message.content.substring(prefix.length).split(' '); 
 
@@ -28,43 +29,38 @@ bot.on('message', message => {
         message.react('714248369756962816'); 
     }
 
-    var useraddfacts = [];
-
     switch(args[0]) {
         case 'help': 
-            const role = 'Gives necessary facts about Argentina.'
             const helpembed = new Discord.MessageEmbed()
-                .setTitle('MTA Bot')
+                .setTitle('MTA Bot Commands')
                 .setDescription('I am a loyal servant of MTA, here to infuse you with lessons from her class.')
-                .addField('Role: ', role)
+                .addFields(
+                    { name: '!addfact', value: `Add any fact about Argentina to store in the Argentina facts library. Make sure the fact is actually about Argentina or it won't work.`},
+                    { name: 'factlibrary', value: 'Shows the list of Argentina facts that the server has created'}
+                )
                 .setImage('https://wallpapercave.com/wp/itYcVwJ.png')
                 .setColor('GOLD')
-                .setFooter('LECHUGA, LIMÓN, CORNO', 'http://i.huffpost.com/gen/1016565/images/o-LEMON-BENEFITS-facebook.jpg')
+                .setFooter('MAKE SURE YOU TYPE THE COMMANDS EXACTLY AS SHOWN')
             message.channel.send(helpembed); 
-            break; 
-        case 'newfacts':
-            message.delete();
-            const newfactsembed = new Discord.MessageEmbed()
-                .setTitle('Add your own Argentina Facts!')
-                .setDescription('Use !addfact + your argentina fact so MTAbot can add it to the Argentina Facts library.')
-                .setColor('0x0096FA')
-            message.channel.send(newfactsembed); 
             break;
         case 'addfact':
             if (message.content.match(new RegExp(/Argentina/i))) {
-                useraddfacts.push(message.content.substr(9));
-                message.channel.send('Fact successfully added!');
-                message.channel.send(message.content.substr(9)); 
-            }
+                dailyfact.push(message.content.substr(9)); 
+                message.channel.send(`Fact successfully added: ${message.content.substr(9)}`); }
             else {
-                message.channel.send('That\'s not a Argentina fact')
-            }
+                message.channel.send(`That's not an Argentina fact.`)}
             break;
-        case 'userfacts':
-            message.channel.send(useraddfacts);
+        case 'factlibrary':
+            message.channel.send(dailyfact); 
             break;
+        case 'deletefact':
+            if (message.member.roles.cache.has('744565379547791480')) {
+                dailyfact.pop();
+                message.channel.send(`Fact successfully deleted: ${recentfact}`); }
+            else {
+                message.channel.send('You do not have the right permissions.'); }
+            break; 
     }
-
 });
 
 bot.login(process.env.token); 
